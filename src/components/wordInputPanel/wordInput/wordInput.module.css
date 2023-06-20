@@ -1,0 +1,9 @@
+.wordInput {
+    border: 1px solid #000;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 3rem;
+    width: 100%;
+    padding: 0.5rem;
+    text-align: center;
+}

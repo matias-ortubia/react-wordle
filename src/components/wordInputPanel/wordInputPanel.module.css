@@ -1,0 +1,4 @@
+.panelContainer {
+    display: flex;
+    flex-flow: row nowrap;
+}
