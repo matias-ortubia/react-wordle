@@ -1,11 +1,16 @@
-import { Word, WordInputPanel } from './components';
+import { WordsContainer, WordInputPanel } from './components';
+import { Word } from './components';
 import './App.css';
 
 function App() {
 
   return (
     <main>
-      <Word>Holaa</Word>
+      <WordsContainer>
+        <Word>ASFMD</Word>
+        <Word>fdsgj</Word>
+        <Word>LOreM</Word>
+      </WordsContainer>
       <WordInputPanel />
     </main>
   )
