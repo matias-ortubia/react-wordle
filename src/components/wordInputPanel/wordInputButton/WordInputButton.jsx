@@ -1,8 +1,15 @@
 import { PropTypes } from "prop-types";
 
-const WordInputButton = ({ label, handleSubmit, input }) => {
+const WordInputButton = ({ label, handleSubmit, input, setBuffer }) => {
+    const handleClick = () => {
+        if (input.length != 5) return;
+            
+        setBuffer(""); 
+        handleSubmit(input) 
+    };
+
     return (
-        <button onClick={ () => handleSubmit(input) }
+        <button onClick={ handleClick }
                 className="tryButton">{ label }</button>
     );
 };
@@ -10,7 +17,8 @@ const WordInputButton = ({ label, handleSubmit, input }) => {
 WordInputButton.propTypes = { 
     label: PropTypes.string.isRequired,
     handleSubmit: PropTypes.func.isRequired,
-    input: PropTypes.string.isRequired 
+    input: PropTypes.string.isRequired,
+    setBuffer: PropTypes.func.isRequired
 };
 
 export { WordInputButton };

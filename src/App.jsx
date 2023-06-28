@@ -7,11 +7,10 @@ function App() {
   const [words, setWords] = useState([]);
 
   const handleSubmit = (word) => {
-    // Enviar la info
-    if (word.length != 5) return;
-
     setWords(prevWords => [...prevWords, word]);
   };
+
+  console.log("aa");
 
   return (
     <main>

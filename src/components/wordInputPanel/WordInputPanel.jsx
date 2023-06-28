@@ -4,7 +4,6 @@ import { WordInput } from './wordInput/WordInput';
 import { WordInputButton } from './wordInputButton/WordInputButton';
 
 const WordInputPanel = ({ handleSubmit }) => {
-
     const [buffer, setBuffer] = useState("");
 
     const handleTyping = (input) => {
@@ -15,10 +14,12 @@ const WordInputPanel = ({ handleSubmit }) => {
         <div className="panelContainer">
             <WordInput input={ buffer }
                        handleTyping={ handleTyping } 
-                       handleSubmit={ handleSubmit }/>
+                       handleSubmit={ handleSubmit }
+                       setBuffer={ setBuffer } />
             <WordInputButton label="TRY"
                              handleSubmit={ handleSubmit }
-                             input={ buffer } />
+                             input={ buffer } 
+                             setBuffer={ setBuffer } />
         </div>
     );
 };
