@@ -24,10 +24,10 @@ function compareWords(inputWord) {
             continue;
         }
 
-        answerCounter = 0
+        answerCounter = 0;
         while (answerCounter < length) {
             if (flags[answerCounter] == "yellow" || 
-                result[answerCounter] == "yellow"|| 
+                result[inputCounter] == "yellow"|| 
                 result[answerCounter] == "green") {
                 
                 answerCounter += 1;
