@@ -1,5 +1,7 @@
 .wordsContainer {
     display: flex;
     flex-flow: column nowrap;
-    gap: 10px;
+    gap: 1rem;
+    height: 27.8rem;
+    width: fit-content;
 }

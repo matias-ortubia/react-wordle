@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { PropTypes } from 'prop-types';
 import { WordInput } from './wordInput/WordInput';
 import { WordInputButton } from './wordInputButton/WordInputButton';
+import styles from './wordInputPanel.module.css';
 
 const WordInputPanel = ({ handleSubmit }) => {
     const [buffer, setBuffer] = useState("");
@@ -11,7 +12,7 @@ const WordInputPanel = ({ handleSubmit }) => {
     };
 
     return (
-        <div className="panelContainer">
+        <div className={ styles.panelContainer }>
             <WordInput input={ buffer }
                        handleTyping={ handleTyping } 
                        handleSubmit={ handleSubmit }
