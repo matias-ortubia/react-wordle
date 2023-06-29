@@ -1,0 +1,16 @@
+.messageBox {
+    border: 1px solid #000;
+    border-radius: 4px;
+    width: 44rem;
+    height: 4.7rem;
+    font-size: 4rem;
+    text-align: center;
+}
+
+.victory {
+    background-color: #a8ffe2;
+}
+
+.lose {
+    background-color: #aaaaaa;
+}

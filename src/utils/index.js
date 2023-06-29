@@ -1,1 +1,2 @@
-export * from './compareWords.js';
+export * from './compareWord.js';
+export * from './isAnswer.js';
