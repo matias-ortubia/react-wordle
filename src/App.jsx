@@ -8,12 +8,22 @@ import { ResultMessage } from "./components/resultMessage/ResultMessage";
 function App() {
   const [tries, setTries] = useState([]);
   const [isGameOver, setGameOver] = useState(false);
+  const [turnCounter, setTurnCounter] = useState(1);
+  const [isVictory, setVictory] = useState(true);
 
   const handleSubmit = (word) => {
     const result = compareWords(word);
     setTries((prevTries) => [...prevTries, { word: word, result: result }]);
-    
-    if (isAnswer(result)) setGameOver(true);
+    setTurnCounter(prevTurn => prevTurn + 1);    
+    console.log("Words sent: " + turnCounter);
+
+    if (isAnswer(result)) { 
+      setGameOver(true);
+    }
+    else if (turnCounter >= 6) {
+      setVictory(false);
+      setGameOver(true);
+    }
   };
 
   return (
@@ -28,7 +38,7 @@ function App() {
             );
           })}
         </WordsContainer>
-        { isGameOver ? <ResultMessage bgColor="victory">You win!</ResultMessage> :
+          { isGameOver ? <ResultMessage bgColor={ isVictory ? "victory" : "lose" }>{ isVictory ? "You win!" : "You lose :("}</ResultMessage> :
                       <WordInputPanel handleSubmit={handleSubmit} /> }
       </div>
     </main>
