@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { WordsContainer, WordInputPanel } from "./components";
+import { WordsContainer, WordInputPanel, ResultMessage } from "./components";
 import { Word } from "./components";
 import { compareWords, isAnswer } from "./utils";
 import "./App.css";
-import { ResultMessage } from "./components/resultMessage/ResultMessage";
 
 function App() {
   const [tries, setTries] = useState([]);
