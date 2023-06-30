@@ -3,22 +3,22 @@ import styles from './wordsPlaceholder.module.css';
 
 const WordsPlaceholder = ({ listLength, wordLength }) => {
 
-    const renderWordPlaceholder = (wordLength) => {
+    const renderWordPlaceholder = (wordLength, wordKey) => {
         const wordPlaceholder = [];
-        console.log("Enter");
         for (let i = 0; i < wordLength; i++) {
-            wordPlaceholder.push(<div className={ styles.letterPlaceholder} />);
-            console.log("rendered " + i + " placeholders");
+            wordPlaceholder.push(<div className={ styles.letterPlaceholder} 
+                                      key={ i } />);
         }
-        return (<div className={ styles.wordPlaceholder}>{ wordPlaceholder }</div>);
+        return (
+            <div className={ styles.wordPlaceholder} key={ wordKey }>
+                { wordPlaceholder }
+            </div>);
     };
 
     const renderWordsPlaceholders = ( listLength ) => {
         const list = [];
-        console.log(listLength);
         for (let i = 0; i < listLength; i++) {
-            console.log("Entro");
-            list.push(renderWordPlaceholder(wordLength));
+            list.push(renderWordPlaceholder(wordLength, i));
         }
         return list;
     };
@@ -28,15 +28,6 @@ const WordsPlaceholder = ({ listLength, wordLength }) => {
             { renderWordsPlaceholders(listLength) }
         </div>
     );
-/*
-    return (
-        <div className="placeholderContainer">
-            <div className="wordPlaceholder">
-                <div className="letterPlaceholder" />
-            </div>
-        </div>
-        
-    );*/
 };
 
 WordsPlaceholder.propTypes = {

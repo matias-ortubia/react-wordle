@@ -11,7 +11,7 @@ const ResultMessage = ({ children, bgColor, handleReset }) => {
 };
 
 ResultMessage.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.array.isRequired,
   bgColor: PropTypes.string.isRequired,
   handleReset: PropTypes.func.isRequired
 };

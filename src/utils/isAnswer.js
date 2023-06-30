@@ -5,7 +5,6 @@ function isAnswer(flags) {
             return false;
         }
     }
-    console.log("true");
     return true;
 }
 

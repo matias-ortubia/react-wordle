@@ -8,9 +8,25 @@
 }
 
 .victory {
-    background-color: #a8ffe2;
+    background-color: #50E3C2;
+}
+
+.victory:hover {
+    background-color: #91ffe7;
+}
+
+.victory:active {
+    background-color: #208c75;
 }
 
 .lose {
     background-color: #FF7A5A;
+}
+
+.lose:hover {
+    background-color: #f9967e;
+}
+
+.lose:active {
+    background-color: #a54128;
 }

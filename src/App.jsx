@@ -10,6 +10,25 @@ function App() {
   const [turn, setTurn] = useState(1);
   const [isVictory, setVictory] = useState(true);
 
+  const handleReset = () => {
+    setSentWords([]);
+    setGameOver(false);
+    setTurn(1);
+    if (isVictory == false) setVictory(true);
+  };
+/*
+  const cachedHandleReset = useCallback(handleReset, [isVictory]); 
+
+  useEffect(() => {
+    document.onkeydown = e => {
+      if (isGameOver) {
+        if (e.key == "Enter") {
+          cachedHandleReset();
+        }
+      }
+    }
+  }, [isGameOver, cachedHandleReset]);
+*/
   const handleSubmit = (word) => {
     const result = compareWords(word);
     setSentWords((prevSentWords) => [...prevSentWords, { word: word, result: result }]);
@@ -22,13 +41,6 @@ function App() {
       setVictory(false);
       setGameOver(true);
     }
-  };
-
-  const handleReset = () => {
-    setSentWords([]);
-    setGameOver(false);
-    setTurn(1);
-    if (isVictory == false) setVictory(true);
   };
 
   return (
