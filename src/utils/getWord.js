@@ -11,6 +11,20 @@ async function getWord() {
     }
   )
   .then(response => response.json())
+
+  fetch(
+    API_URL,
+  )
+
+    try {
+        const response = await fetch(url, options);
+        const result = await response.text();
+        console.log(result);
+    } catch (error) {
+        console.error(error);
+    }
 }
+
+
 
 export { getWord };

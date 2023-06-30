@@ -12,36 +12,36 @@ function compareWords(inputWord) {
 
     for (let i = 0; i < length; i++) {
         if (inputWord[i] == answer[i]) {
-            result[i] = "green";
+            result[i] = "correct";
         }
     }
 
     let answerCounter = 0;
     let inputCounter = 0;
     while (inputCounter < length) {
-        if (result[inputCounter] == "green") {
+        if (result[inputCounter] == "correct") {
             inputCounter += 1;
             continue;
         }
 
         answerCounter = 0;
         while (answerCounter < length) {
-            if (flags[answerCounter] == "yellow" || 
-                result[inputCounter] == "yellow"|| 
-                result[answerCounter] == "green") {
+            if (flags[answerCounter] == "almost" || 
+                result[inputCounter] == "almost"|| 
+                result[answerCounter] == "correct") {
                 
                 answerCounter += 1;
                 continue;
             }
             if (answer[answerCounter] == inputWord[inputCounter]) {
-                flags[answerCounter] = "yellow";
-                result[inputCounter] = "yellow";
+                flags[answerCounter] = "almost";
+                result[inputCounter] = "almost";
                 break;
             }
             answerCounter += 1;
         }
-        if (result[inputCounter] != "yellow") {
-            result[inputCounter] = "grey";
+        if (result[inputCounter] != "almost") {
+            result[inputCounter] = "notInWord";
         }
         inputCounter += 1;
     }
