@@ -1,3 +1,18 @@
 .tryButton {
     height: inherit; 
+    border: none;
+    border-radius: 4px;
+    background: #50E3C2;
+    font-family: inherit;
+    font-size: 2rem;
+    padding: 0.5rem;
+    font-weight: 500;
+}
+
+.tryButton:hover {
+    background: #91ffe7;
+}
+
+.tryButton:active {
+    background: #208c75;
 }

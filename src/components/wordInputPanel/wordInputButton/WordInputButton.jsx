@@ -1,4 +1,5 @@
 import { PropTypes } from "prop-types";
+import styles from './WordInputButton.module.css';
 
 const WordInputButton = ({ label, handleSubmit, input, setBuffer }) => {
     const handleClick = () => {
@@ -10,7 +11,7 @@ const WordInputButton = ({ label, handleSubmit, input, setBuffer }) => {
 
     return (
         <button onClick={ handleClick }
-                className="tryButton">{ label }</button>
+                className={ styles.tryButton }>{ label }</button>
     );
 };
 

@@ -1,8 +1,15 @@
 .wordInput {
-    border: 1px solid #000;
+    border: 1px solid #FCF4D9;
     border-radius: 4px;
     font-family: inherit;
     font-size: 3rem;
     padding: 0.5rem;
     text-align: center;
+    background-color: inherit;
+    color: #FCF4D9;
+    width: 100%;
+}
+
+.wordInput::placeholder {
+    color: #9d78be;
 }

@@ -1,20 +1,19 @@
 import { useState } from "react";
-import { WordsContainer, WordInputPanel, ResultMessage } from "./components";
+import { WordsContainer, WordInputPanel, ResultMessage, WordsPlaceholder } from "./components";
 import { Word } from "./components";
 import { compareWords, isAnswer } from "./utils";
 import "./App.css";
 
 function App() {
-  const [tries, setTries] = useState([]);
+  const [sentWords, setSentWords] = useState([]);
   const [isGameOver, setGameOver] = useState(false);
   const [turn, setTurn] = useState(1);
   const [isVictory, setVictory] = useState(true);
 
   const handleSubmit = (word) => {
     const result = compareWords(word);
-    setTries((prevTries) => [...prevTries, { word: word, result: result }]);
+    setSentWords((prevSentWords) => [...prevSentWords, { word: word, result: result }]);
     setTurn(prevTurn => prevTurn + 1);    
-    console.log("Words sent: " + turn);
 
     if (isAnswer(result)) { 
       setGameOver(true);
@@ -26,7 +25,7 @@ function App() {
   };
 
   const handleReset = () => {
-    setTries([]);
+    setSentWords([]);
     setGameOver(false);
     setTurn(1);
     if (isVictory == false) setVictory(true);
@@ -35,14 +34,15 @@ function App() {
   return (
     <main>
       <div className="game-container">
+        <WordsPlaceholder listLength={ 6 } wordLength={ 5 } />
         <WordsContainer>
-          {tries.map((word, i) => {
+          { sentWords.map((word, i) => {
             return (
               <Word result={word.result} key={i}>
                 {word.word}
               </Word>
             );
-          })}
+          }) }
         </WordsContainer>
         { isGameOver ? <ResultMessage bgColor={ isVictory ? "victory" : "lose" }
                                       handleReset={ handleReset }>

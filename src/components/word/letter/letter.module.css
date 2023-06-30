@@ -1,22 +1,23 @@
 .letterContainer {
     font-size: 2.5rem;
-    border: 1px solid #000;
+    border: 1px solid #FCF4D9;
     border-radius: 4px;
     padding: 0.3rem;
     width: 3rem;
     height: 3rem;
     flex-grow: 1;
     text-align: center;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
-.green {
-    background-color: #64ec0f;
+.correct {
+    background-color: #50E3C2;
 }
 
-.yellow {
-    background-color: #fffb00;
+.almost {
+    background-color: #FF7A5A;
 }
 
-.grey {
-    background-color: #bfbfbf;
+.notInWord {
+    background-color: #432160;
 }
