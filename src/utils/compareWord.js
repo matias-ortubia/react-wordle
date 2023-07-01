@@ -3,9 +3,7 @@
 * G: the letter is in the right position
 * Y: the letter is included in the word but in another position
 * -: the letter is not in the word */
-function compareWords(inputWord) {
-    const answer = "ramon";
-
+function compareWords(inputWord, answer) {
     let length = answer.length;
     let flags = ['', '', '', '', ''];
     let result = ['', '', '', '', ''];

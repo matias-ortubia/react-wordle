@@ -39,9 +39,15 @@ main {
   justify-content: center;
   align-items: center;
   gap: 2.5rem;
-  width: 44rem;
+  width: 90vw;
 }
 
 .reset-message {
   font-size: 1.6rem;
+}
+
+@media screen and (min-width: 1020px) {
+  .game-container {
+    width: 44rem;
+  }
 }

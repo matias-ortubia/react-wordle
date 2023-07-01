@@ -1,30 +1,13 @@
-async function getWord() {
-  fetch(
-    "https://wordsapiv1.p.mashape.com/words?random=true",
-    {
-      method: "GET",
-      headers: {
-        "X-Mashape-Key": "required",
-        //"Content-Type": "application/x-www-form-urlencoded",
-        //Accept: "application/json",
-      },
-    }
-  )
-  .then(response => response.json())
-
-  fetch(
-    API_URL,
-  )
-
-    try {
-        const response = await fetch(url, options);
-        const result = await response.text();
-        console.log(result);
-    } catch (error) {
-        console.error(error);
-    }
+async function getWord(n) {
+  const url = import.meta.env.VITE_API_URL.toString() + n.toString();
+  let response = await fetch(url).then(response => response.json());
+  let word = response[0];
+  while(word.length != n) {
+    response = await fetch(url).then(response => response.json());
+    word = response[0];
+  }
+  console.log(word);
+  return word;
 }
-
-
 
 export { getWord };

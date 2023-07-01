@@ -1,20 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { WordsContainer, WordInputPanel, ResultMessage, WordsPlaceholder } from "./components";
 import { Word } from "./components";
-import { compareWords, isAnswer } from "./utils";
+import { compareWords, isAnswer, getWord } from "./utils";
 import "./App.css";
 
 function App() {
+  const [answer, setAnswer] = useState(null);
   const [sentWords, setSentWords] = useState([]);
   const [isGameOver, setGameOver] = useState(false);
   const [turn, setTurn] = useState(1);
   const [isVictory, setVictory] = useState(true);
 
-  const handleReset = () => {
+  useEffect(() => {
+    getWord(5).then(response => setAnswer(response));
+  }, []);
+
+  const handleReset = async () => {
     setSentWords([]);
     setGameOver(false);
     setTurn(1);
     if (isVictory == false) setVictory(true);
+    setAnswer(await getWord(5));
   };
 /*
   const cachedHandleReset = useCallback(handleReset, [isVictory]); 
@@ -30,7 +36,7 @@ function App() {
   }, [isGameOver, cachedHandleReset]);
 */
   const handleSubmit = (word) => {
-    const result = compareWords(word);
+    const result = compareWords(word, answer);
     setSentWords((prevSentWords) => [...prevSentWords, { word: word, result: result }]);
     setTurn(prevTurn => prevTurn + 1);    
 
