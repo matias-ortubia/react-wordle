@@ -18,7 +18,7 @@ function App() {
   const [isGameOver, setGameOver] = useState(false);
   const [turn, setTurn] = useState(1);
   const [isVictory, setVictory] = useState(true);
-  const [isModalOpen, setModalOpen] = useState(true);
+  const [isModalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     getWord(5).then((response) => setAnswer(response));
