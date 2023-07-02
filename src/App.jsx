@@ -1,5 +1,13 @@
 import { useState, useEffect } from "react";
-import { WordsContainer, WordInputPanel, ResultMessage, WordsPlaceholder } from "./components";
+import {
+  WordsContainer,
+  WordInputPanel,
+  ResultMessage,
+  WordsPlaceholder,
+  Title,
+  Instructions,
+  InstructionsButton
+} from "./components";
 import { Word } from "./components";
 import { compareWords, isAnswer, getWord } from "./utils";
 import "./App.css";
@@ -10,9 +18,10 @@ function App() {
   const [isGameOver, setGameOver] = useState(false);
   const [turn, setTurn] = useState(1);
   const [isVictory, setVictory] = useState(true);
+  const [isModalOpen, setModalOpen] = useState(true);
 
   useEffect(() => {
-    getWord(5).then(response => setAnswer(response));
+    getWord(5).then((response) => setAnswer(response));
   }, []);
 
   const handleReset = async () => {
@@ -22,7 +31,7 @@ function App() {
     if (isVictory == false) setVictory(true);
     setAnswer(await getWord(5));
   };
-/*
+  /*
   const cachedHandleReset = useCallback(handleReset, [isVictory]); 
 
   useEffect(() => {
@@ -37,38 +46,57 @@ function App() {
 */
   const handleSubmit = (word) => {
     const result = compareWords(word, answer);
-    setSentWords((prevSentWords) => [...prevSentWords, { word: word, result: result }]);
-    setTurn(prevTurn => prevTurn + 1);    
+    setSentWords((prevSentWords) => [
+      ...prevSentWords,
+      { word: word, result: result },
+    ]);
+    setTurn((prevTurn) => prevTurn + 1);
 
-    if (isAnswer(result)) { 
+    if (isAnswer(result)) {
       setGameOver(true);
-    }
-    else if (turn >= 6) {
+    } else if (turn >= 6) {
       setVictory(false);
       setGameOver(true);
     }
   };
 
+  const toggleModal = () => {
+    setModalOpen((prevState) => !prevState);
+  };
   return (
     <main>
+      <Title />
+      {isModalOpen && <Instructions handleClose={toggleModal} />}
       <div className="game-container">
-        <WordsPlaceholder listLength={ 6 } wordLength={ 5 } />
+        <WordsPlaceholder listLength={6} wordLength={5} />
         <WordsContainer>
-          { sentWords.map((word, i) => {
+          {sentWords.map((word, i) => {
             return (
               <Word result={word.result} key={i}>
                 {word.word}
               </Word>
             );
-          }) }
+          })}
         </WordsContainer>
-        { isGameOver ? <ResultMessage bgColor={ isVictory ? "victory" : "lose" }
-                                      handleReset={ handleReset }>
-          <p>{ isVictory ? "You win!" : "You lose :("}</p>
-          <p className="reset-message">Clic here to play again</p>
-        </ResultMessage> :
-        <WordInputPanel handleSubmit={handleSubmit} /> }
+        {isGameOver ? (
+          <ResultMessage
+            bgColor={isVictory ? "victory" : "lose"}
+            handleReset={handleReset}
+          >
+            {isVictory ? (
+              <p>¡Ganaste!</p>
+            ) : (
+              <p>
+                Perdiste :( La palabra era <strong>{answer}</strong>
+              </p>
+            )}
+            <p className="reset-message">Reiniciar</p>
+          </ResultMessage>
+        ) : (
+          <WordInputPanel handleSubmit={handleSubmit} />
+        )}
       </div>
+      <InstructionsButton openModal={toggleModal}>INSTRUCCIONES</InstructionsButton>
     </main>
   );
 }

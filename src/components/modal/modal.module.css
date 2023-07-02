@@ -1,0 +1,20 @@
+.modal {
+    position: absolute;
+    border: 1px solid #FCF4D9;
+    border-radius: 4px;
+    z-index: 10;
+    display: flex;
+    flex-flow: column nowrap;
+    background-color: darkblue;
+}
+
+.closeButton {
+    position: relative;
+    right: 0;
+    background: none;
+    border: 1px solid #FCF4D9;
+    color: #FCF4D9;
+    width: fit-content;
+    padding: 1rem;
+    padding-bottom: 0.7rem;
+}

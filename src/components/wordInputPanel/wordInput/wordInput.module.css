@@ -2,12 +2,12 @@
     border: 1px solid #FCF4D9;
     border-radius: 4px;
     font-family: inherit;
-    font-size: 3rem;
+    font-size: 2rem;
     padding: 0.5rem;
     text-align: center;
     background-color: inherit;
     color: #FCF4D9;
-    width: 100%;
+    width: 70%;
 }
 
 .wordInput::placeholder {

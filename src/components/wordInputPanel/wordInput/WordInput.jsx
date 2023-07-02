@@ -16,7 +16,7 @@ const WordInput = ({ input, handleTyping, handleSubmit, setBuffer }) => {
         <input value={ input } 
                onChange={ e => handleTyping(e.target.value) } 
                className={ styles.wordInput } 
-               placeholder="Type a word here" 
+               placeholder="Escribe una palabra..." 
                onKeyDown={e => handleEnter(e)} />
     );
 };

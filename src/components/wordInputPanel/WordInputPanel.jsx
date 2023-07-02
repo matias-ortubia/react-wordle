@@ -17,7 +17,7 @@ const WordInputPanel = ({ handleSubmit }) => {
                        handleTyping={ handleTyping } 
                        handleSubmit={ handleSubmit }
                        setBuffer={ setBuffer } />
-            <WordInputButton label="TRY"
+            <WordInputButton label="ENVIAR"
                              handleSubmit={ handleSubmit }
                              input={ buffer } 
                              setBuffer={ setBuffer } />

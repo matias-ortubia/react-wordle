@@ -6,7 +6,6 @@ async function getWord(n) {
     response = await fetch(url).then(response => response.json());
     word = response[0];
   }
-  console.log(word);
   return word;
 }
 
