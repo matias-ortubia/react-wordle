@@ -1,11 +1,7 @@
-async function getWord(n) {
-  const url = import.meta.env.VITE_API_URL.toString() + n.toString();
-  let response = await fetch(url).then(response => response.json());
-  let word = response[0];
-  while(word.length != n) {
-    response = await fetch(url).then(response => response.json());
-    word = response[0];
-  }
+function getWord(n) {
+  const url = import.meta.env.VITE_API_URL.toString() + n.toString() + "?format=json";
+  // const word = axios.get(url).then(res => res.data.word); // Axios version
+  const word = fetch(url).then(res => res.json()).then(el => el.word);
   return word;
 }
 

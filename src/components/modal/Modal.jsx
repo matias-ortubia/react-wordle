@@ -4,8 +4,10 @@ import styles from './modal.module.css';
 const Modal = ({ children, handleClose }) => {
     return (
         <div className={ styles.modal }>
-            <button className={ styles.closeButton } onClick={ handleClose }>X</button>
             { children }
+            <button className={ styles.closeButton } onClick={ handleClose }>
+                CERRAR
+            </button>
         </div>
     );
 };

@@ -96,7 +96,7 @@ function App() {
           <WordInputPanel handleSubmit={handleSubmit} />
         )}
       </div>
-      <InstructionsButton openModal={toggleModal}>INSTRUCCIONES</InstructionsButton>
+      <InstructionsButton openModal={toggleModal}>CÓMO JUGAR</InstructionsButton>
     </main>
   );
 }
