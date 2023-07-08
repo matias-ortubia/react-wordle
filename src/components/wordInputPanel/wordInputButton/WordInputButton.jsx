@@ -1,5 +1,5 @@
 import { PropTypes } from "prop-types";
-import styles from './WordInputButton.module.css';
+import styles from './wordInputButton.module.css';
 
 const WordInputButton = ({ label, handleSubmit, input, setBuffer }) => {
     const handleClick = () => {
