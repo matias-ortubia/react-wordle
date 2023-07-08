@@ -5,7 +5,7 @@ const WordInput = ({ input, handleTyping, handleSubmit, setBuffer }) => {
 
     const handleEnter = e => {
         if (e.key === "Enter") {
-            if (input.length != 5 || /[^a-zA-Z0-9]/g.test(input) == true) {
+            if (input.length != 5 || /[^a-zA-Z]/g.test(input) == true) {
                 return;
             }
 
