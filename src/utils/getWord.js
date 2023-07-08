@@ -1,5 +1,7 @@
 function getWord(n) {
-  const url = `${import.meta.env.VITE_API_URL.toString()}${n.toString()}?format=json`
+  //const url = `${import.meta.env.VITE_API_URL.toString()}${n.toString()}?format=json`
+  const url = `/api_words/random/${n.toString()}?format=json`;
+
   const headers = {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
