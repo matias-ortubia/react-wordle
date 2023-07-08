@@ -1,5 +1,5 @@
 .wordContainer {
     display: flex;
     flex-flow: row nowrap;
-    gap: 5px;
+    gap: 0.5rem;
 }

@@ -1,4 +1,7 @@
 .panelContainer {
     display: flex;
     flex-flow: row nowrap;
+    gap: 1rem;
+    width: 100%;
+    justify-content: right;
 }

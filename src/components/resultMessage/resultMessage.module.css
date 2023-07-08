@@ -1,0 +1,32 @@
+.messageBox {
+    border: 1px solid #000;
+    border-radius: 4px;
+    width: 100%;
+    height: 4.7rem;
+    font-size: 2.4rem;
+    text-align: center;
+}
+
+.victory {
+    background-color: #50E3C2;
+}
+
+.victory:hover {
+    background-color: #91ffe7;
+}
+
+.victory:active {
+    background-color: #208c75;
+}
+
+.lose {
+    background-color: #FF7A5A;
+}
+
+.lose:hover {
+    background-color: #f9967e;
+}
+
+.lose:active {
+    background-color: #a54128;
+}

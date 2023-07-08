@@ -1,0 +1,8 @@
+.instructionsButton {
+    border: 1px solid #FCF4D9;
+    border-radius: 4px;
+    background: none;
+    color: #FCF4d9;
+    padding: 1rem;
+    font-size: 2rem;
+}

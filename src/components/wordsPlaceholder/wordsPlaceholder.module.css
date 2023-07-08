@@ -1,0 +1,25 @@
+.placeholderContainer {
+    position: absolute;
+    top: 1rem;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
+    height: 27.8rem;
+    width: fit-content;
+}
+
+.wordPlaceholder {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 0.5rem;
+}
+
+.letterPlaceholder {
+    border: 1px solid #FCF4D9;
+    border-radius: 4px;
+    padding: 0.3rem;
+    width: 3rem;
+    height: 3rem;
+    flex-grow: 1;
+    text-align: center;
+}
