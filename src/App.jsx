@@ -9,60 +9,46 @@ import {
   InstructionsButton
 } from "./components";
 import { Word } from "./components";
-import { compareWords, isAnswer, getWord } from "./utils";
+import { startSession, sendGuess } from "./api/game";
 import "./App.css";
 
 function App() {
   const [answer, setAnswer] = useState(null);
   const [sentWords, setSentWords] = useState([]);
   const [isGameOver, setGameOver] = useState(false);
-  const [turn, setTurn] = useState(1);
   const [isVictory, setVictory] = useState(true);
   const [isModalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
-    getWord(5).then((response) => setAnswer(response));
+    startSession().then(() => {});
   }, []);
 
-  const handleReset = async () => {
-    setSentWords([]);
-    setGameOver(false);
-    setTurn(1);
-    if (isVictory == false) setVictory(true);
-    setAnswer(await getWord(5));
-  };
-  /*
-  const cachedHandleReset = useCallback(handleReset, [isVictory]); 
+  const handleSubmit = async (word) => {
+    const data = await sendGuess(word);
 
-  useEffect(() => {
-    document.onkeydown = e => {
-      if (isGameOver) {
-        if (e.key == "Enter") {
-          cachedHandleReset();
-        }
-      }
-    }
-  }, [isGameOver, cachedHandleReset]);
-*/
-  const handleSubmit = (word) => {
-    const result = compareWords(word, answer);
     setSentWords((prevSentWords) => [
       ...prevSentWords,
-      { word: word, result: result },
+      { word: word, result: data.result },
     ]);
-    setTurn((prevTurn) => prevTurn + 1);
 
-    if (isAnswer(result)) {
+    if (data.is_game_over) {
       setGameOver(true);
-    } else if (turn >= 6) {
-      setVictory(false);
-      setGameOver(true);
+      setVictory(data.is_win);
+      setAnswer(data.answer);
     }
+  };
+
+  const handleReset = () => {
+    setSentWords([]);
+    setGameOver(false);
+    setVictory(true);
+    setAnswer(null);
   };
 
   const toggleModal = () => {
     setModalOpen((prevState) => !prevState);
   };
+
   return (
     <main>
       <Title />
@@ -90,7 +76,6 @@ function App() {
                 Perdiste :( La palabra era <strong>{answer}</strong>
               </p>
             )}
-            <p className="reset-message">Reiniciar</p>
           </ResultMessage>
         ) : (
           <WordInputPanel handleSubmit={handleSubmit} />

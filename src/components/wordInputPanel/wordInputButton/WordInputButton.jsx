@@ -3,7 +3,9 @@ import styles from './wordInputButton.module.css';
 
 const WordInputButton = ({ label, handleSubmit, input, setBuffer }) => {
     const handleClick = () => {
-        if (input.length != 5) return;
+        if (input.length != 5 || /[^a-zA-Z]/g.test(input) == true) {
+                return;
+            }
             
         setBuffer(""); 
         handleSubmit(input) 
