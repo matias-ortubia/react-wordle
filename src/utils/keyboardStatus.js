@@ -5,8 +5,6 @@ const computeLetterStatuses = (sentWords) => {
 
     sentWords.forEach(({ word, result }) => {
         word.toUpperCase().split('').forEach((letter, i) => {
-            console.log(result);
-            console.log(word);
             const status = result[i];
             const currentBest = statuses[letter];
 
