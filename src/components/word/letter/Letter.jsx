@@ -5,7 +5,7 @@ import styles from './letter.module.css';
 letter: string representing the letter to show.
     If it's length is more than 1, only the first letter is shown.
 
-color: the color of the box. The options are: 'Green', 'Yellow', 'Grey'.
+color: the color of the box. The options are: 'correct', 'almost', 'notInWord'.
 */
 const Letter = ({ color, children }) => {
     if (children.length > 1) {

@@ -1,0 +1,12 @@
+.keyboardContainer {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.keyboardRow {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 0.4rem;
+}
